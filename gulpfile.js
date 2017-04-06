@@ -43,13 +43,13 @@ gulp.task('scripts', function () {
 });
 
 gulp.task("babel", function () {
-    return gulp.src("src/js/main.Es6.js")
+    return gulp.src("src/js/main.ES6.js")
         .pipe(babel())
         .pipe(rename("main.js"))
         .pipe(gulp.dest("src/js"));
 });
 
-gulp.task('css-libs', ['sass'], function () {
+gulp.task('css-libs', ["css-nano", 'sass'], function () {
     return gulp.src('src/css/libs.css')
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
@@ -66,8 +66,7 @@ gulp.task("css-nano",["sass"], ()=> {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function () {
     gulp.watch('src/sass/**/*.sass', ["css-nano",browserSync.reload]);
     gulp.watch('src/*html', browserSync.reload);
-    gulp.watch("src/css/main.css", "css-nano");
-    gulp.watch('src/js/main.ES6.js', ["babel", browserSync.reload]);
+    gulp.watch("src/js/main.ES6.js", ["babel", browserSync.reload]);
 });
 
 gulp.task('clean', function () {
@@ -88,7 +87,7 @@ gulp.task('img', function () {
 gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function () {
     var buildCss = gulp.src([
         'src/css/main.min.css',
-        'src/scc/libs.min.css'
+        'src/css/libs.min.css'
     ]).pipe(gulp.dest('dist/css'));
     var buildFonts = gulp.src('src/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
