@@ -90,7 +90,8 @@ header {
   margin: 80px 0 115px; }
 
 .work__item {
-  position: relative; }
+  position: relative;
+  margin-bottom: 35px; }
   .work__item img {
     width: 350px;
     height: 252px; }
@@ -184,3 +185,19 @@ footer {
       background: #0976b4; }
   footer span {
     font-size: 15px; }
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  .work__item img {
+    width: 300px; }
+  .work__item .work-controls {
+    width: 300px; } }
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .work__item .work-controls {
+    left: 15px; } }
+
+@media all and (max-width: 767px) {
+  .container {
+    width: 584px; }
+  .work__item .work-controls {
+    left: 102px; } }
